@@ -7,8 +7,8 @@ export default function Rooting() {
         <>
             <Router>
                 <Route path="/" element={<Home/>}/>
-                <Route path="/calculator" element={<Calculator/>}/>
-                <Route path="/todolist" element={<Home/>}/>
+                <Route path="calculator" element={<Calculator/>}/>
+                {/*<Route path="/todolist" element={<Home/>}/>*/}
                 {/*<Route path="/notes" element={<Home/>}/>*/}
                 {/*<Route path="/roll-the-dice" element={<Home/>}/>*/}
                 {/*<Route path="/about/" element={<About/>}/>*/}

@@ -11,11 +11,11 @@ function App() {
             <h1>Bienvenu sur votre boîte à outils</h1>
             <BrowserRouter>
                 <Routes>
-                    <Route path="/" element={<Home/>}>
-                        <Route path="/calculator" element={<Calculator/>}/>
-                        {/*<Route path="contact" element={<Contact/>}/>*/}
-                        {/*<Route path="*" element={<NoPage/>}/>*/}
-                    </Route>
+                    <Route path="/" element={<Home/>}/>
+                    <Route path="calculator" element={<Calculator/>}/>
+                    {/*<Route path="contact" element={<Contact/>}/>*/}
+                    {/*<Route path="*" element={<NoPage/>}/>*/}
+
                 </Routes>
             </BrowserRouter>
         </>

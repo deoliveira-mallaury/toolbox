@@ -26,10 +26,11 @@ export default function Home() {
                                   p: '5%',
                                   m: '2vw auto',
                               }}>
-                            <Item> <Link to="/calculator">{text}</Link></Item>
+                            <Item> <Link to="calculator">{text}</Link></Item>
                         </Grid>
                     ))}
                 </Grid>
+                <button><Link to="/">home</Link></button>
             </Box>{/*<Box component="section" sx={{*/
         }
             {/*    width: '10vw',*/
