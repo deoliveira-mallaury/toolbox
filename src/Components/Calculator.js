@@ -2,6 +2,8 @@ import {Link} from "react-router-dom";
 import {Box, Grid} from "../../node_modules/@mui/material/index";
 import PropTypes from "prop-types";
 import BackspaceIcon from '@mui/icons-material/Backspace';
+import {useEffect, useState} from "react";
+
 const styles = {
     position: 'relative',
     display: 'flex',
@@ -50,6 +52,25 @@ Item.propTypes = {
     ]),
 };
 export default function Calculator() {
+    const [value, setValue] = useState('');
+    const handleClick = (item) => {
+
+        // console.log(item)
+        if (item === "+") {
+            return console.log(value)
+            // return value.sum();
+        }
+        setValue(value => value + item);
+        // console.log(parseInt(item));
+    };
+    useEffect(() => {
+        console.log(value);
+    }, [value]);
+    const handleChange = (event) => {
+        handleClick()
+        setValue(event.target.value);
+        console.log(event.target.value);
+    }
     return (
         <>
             <p>Je suis une calculatrice</p>
@@ -61,13 +82,20 @@ export default function Calculator() {
                     borderRadius: '20px',
                     display: 'grid',
                     bgcolor: 'salmon',
+                    textAlign: 'center',
                 }}>
-
-                    {[' % ', 'CE', 'C', 'supprimer précédent caractère', '7', '8', '9', ' x ', '4', '5', '6', ' - ', '1', '2', '3', ' + ', '+/-', '0', '.', ' = '].map((item) => {
+                    <Item gridColumn="span 4"
+                          sx={{
+                              height: '45%',
+                              mb: '20%',
+                          }}>{value} </Item>
+                    {[' % ', 'CE', 'C', 'del', '7', '8', '9', ' x ', '4', '5', '6', ' - ', '1', '2', '3', ' + ', '+/-', '0', '.', ' = '].map((item) => {
                         console.log(item);
-
+                        if (item === ('del')) {
+                            return <Item><BackspaceIcon/></Item>
+                        }
                         // return <p>{item}</p>
-                        return <Item>{item}</Item>
+                        return <Item onClick={() => handleClick(item.trim())}>{item}</Item>
                     })}
                 </Box>
             </Grid>
